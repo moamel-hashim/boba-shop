@@ -1,12 +1,11 @@
 // https://bit.ly/3aI9YSD - universal box-sizing with inheritance.
-html {
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Open+Sans:ital,wght@0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+* {
   box-sizing: border-box;
 }
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
+
+$color-white: #fff;
 
 html,
 body {
@@ -16,6 +15,110 @@ body {
   // https://mzl.la/2KnTfHh
   // size/line-height | family
   font: 16px 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+nav {
+  background-color: #182d3c;;
+}
+
+h3 {
+  font-size: 1.75em;
+  font-family: 'Agbalumo', sans-serif;
+  font-weight: 100;
+  -webkit-text-stroke: 1px $color-white;
+  color: transparent;
+}
+
+.title {
+  width: 20%;
+}
+.tabs {
+  display: flex;
+  align-items: baseline;
+  padding: 0 0 0 1rem;
+  justify-content: space-between;
+}
+.tabs input {
+  visibility: hidden;
+  display: none;
+}
+
+.buttons {
+  position: relative;
+  display: flex;
+  padding: 30px 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, $alpha: 0.2);
+  overflow: hidden;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.buttons label {
+  width: 20%;
+  font-size: 1.75em;
+  -webkit-text-stroke: 1px $color-white;
+  color: transparent;
+  opacity: 0.3;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.buttons label:hover {
+  opacity: 1;
+  filter: drop-shadow(0 0 10px $color-white) drop-shadow(0 0 20px $color-white);
+}
+
+.tabs input:nth-child(1):checked ~ .buttons label:nth-child(1),
+.tabs input:nth-child(2):checked ~ .buttons label:nth-child(2),
+.tabs input:nth-child(3):checked ~ .buttons label:nth-child(3) {
+  color: $color-white;
+  opacity: 1;
+  filter: drop-shadow(0 0 10px $color-white) drop-shadow(0 0 20px $color-white);
+}
+
+.underline {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: inherit;
+  height: 5px;
+  transition: 0.5s;
+}
+
+.underline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 100%;
+  background-color: $color-white;
+  border-radius: 4px;
+  filter: drop-shadow(0 0 10px $color-white) drop-shadow(0 0 20px $color-white);
+}
+
+.underline::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 100%;
+  background-color: $color-white;
+  border-radius: 4px;
+  filter: drop-shadow(0 0 10px $color-white) drop-shadow(0 0 20px $color-white);
+}
+
+.tabs input:nth-child(1):checked ~ .buttons .underline {
+  left: 0;
+}
+
+.tabs input:nth-child(2):checked ~ .buttons .underline {
+  left: 20%;
+}
+
+.tabs input:nth-child(3):checked ~ .buttons .underline {
+  left: 40%;
 }
 
 /*

@@ -8,6 +8,8 @@
 
 // https://github.com/qodesmith/sassyons
 @import 'sassyons/dist/sassyons.css';
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Open+Sans:ital,wght@0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Roboto:wght@300;400;500;700;900&display=swap');
+
 
 /*
   Application Styles
@@ -17,3 +19,205 @@
   @import each of them in reverse-priority order (bottom = highest priority).
 */
 @import 'global';
+
+$color-white: #fff;
+$color-navyDark: rgb(35, 35, 35);
+
+nav {
+  background-color: #182d3c;
+  ;
+}
+
+.title h3 {
+  font-size: 2em;
+  font-family: 'Agbalumo', sans-serif;
+  font-weight: 100;
+  -webkit-text-stroke: 1px $color-white;
+  color: transparent;
+  opacity: 0.5;
+}
+
+.title {
+  width: 20%;
+}
+
+.tabs {
+  display: flex;
+  align-items: baseline;
+  padding: 0 0 0 1rem;
+  justify-content: space-between;
+}
+
+.tabs input {
+  visibility: hidden;
+  display: none;
+}
+
+.buttons {
+  position: relative;
+  display: flex;
+  padding: 30px 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, $alpha: 0.2);
+  overflow: hidden;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.buttons label {
+  width: 20%;
+  font-size: 2em;
+  -webkit-text-stroke: 1px $color-white;
+  color: transparent;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: 0.5s;
+  font-family: "Roboto", sans-serif;
+}
+
+.buttons label:hover {
+  opacity: 1;
+  filter: drop-shadow(0 0 10px $color-white) drop-shadow(0 0 20px $color-white);
+}
+
+.tabs input:nth-child(1):checked~.buttons label:nth-child(1),
+.tabs input:nth-child(2):checked~.buttons label:nth-child(2),
+.tabs input:nth-child(3):checked~.buttons label:nth-child(3) {
+  color: $color-white;
+  opacity: 1;
+  filter: drop-shadow(0 0 10px $color-white) drop-shadow(0 0 20px $color-white);
+}
+
+.underline {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: inherit;
+  height: 5px;
+  transition: 0.5s;
+}
+
+.underline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 100%;
+  background-color: $color-white;
+  border-radius: 4px;
+  filter: drop-shadow(0 0 10px $color-white) drop-shadow(0 0 20px $color-white);
+}
+
+.underline::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 100%;
+  background-color: $color-white;
+  border-radius: 4px;
+  filter: drop-shadow(0 0 10px $color-white) drop-shadow(0 0 20px $color-white);
+}
+
+.tabs input:nth-child(1):checked~.buttons .underline {
+  left: 0;
+}
+
+.tabs input:nth-child(2):checked~.buttons .underline {
+  left: 20%;
+}
+
+.tabs input:nth-child(3):checked~.buttons .underline {
+  left: 40%;
+}
+
+
+.menuTitle {
+  display: flex;
+  flex-direction: column;
+  background: url('../assets/images/background.webp') no-repeat fixed;
+  background-size: contain;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+
+  h3 {
+    margin: 0;
+    font-weight: 400;
+    font-family: "Roboto", sans-serif;
+    color: $color-navyDark;
+    text-transform: uppercase;
+  }
+
+  h3:nth-child(1) {
+    font-size: 3rem;
+  }
+
+  h3:nth-child(2) {
+    font-size: 5rem;
+  }
+}
+
+.series {
+  text-align: center;
+  margin: 2rem 0 0 0;
+}
+
+h4 {
+  text-transform: uppercase;
+  color: $color-navyDark;
+  font-size: 1.7em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.text-align-center {
+  text-align: -webkit-center;
+}
+
+.image-container {
+  width: 30%;
+}
+
+
+.drinks-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  gap: 1rem;
+  .drinks {
+    width: 25%;
+  }
+  h5 {
+    font-size: 1.3rem;
+    color: $color-navyDark;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-underline-offset: 2rem;
+    text-decoration-color: $color-navyDark;
+    text-align: center;
+  }
+  p {
+    text-align: center;
+  }
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+}
+
+.drinks-title {
+  text-align: center;
+  margin: 2rem 0 0 0;
+  h4 {
+    text-decoration: underline;
+    text-underline-position: under;
+    text-underline-offset: 2rem;
+    text-decoration-color: $color-navyDark;
+  }
+}

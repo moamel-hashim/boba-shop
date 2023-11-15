@@ -1,11 +1,12 @@
 import React from 'react'
 import Navbar from './Navbar'
+import Menu from './Menu'
 
 const Home = () => {
   return (
     <div className="container">
       <Navbar/>
-      <p>this is a home page</p>
+      <Menu />
     </div>
   )
 }

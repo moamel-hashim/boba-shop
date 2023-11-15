@@ -268,7 +268,7 @@ module.exports = (env, argv) => ({
         * Keeps the original file name
       */
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|jpg|gif|webp)$/,
         include: path.resolve(__dirname, 'src/assets'),
         use: [
           {

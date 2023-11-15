@@ -1,7 +1,10 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 export default function Menu() {
   return (
+    <>
+    <Navbar/>
     <main>
       <section>
         <div className="menuTitle">
@@ -46,5 +49,6 @@ export default function Menu() {
         </div>
       </section>
     </main>
+    </>
   )
 }

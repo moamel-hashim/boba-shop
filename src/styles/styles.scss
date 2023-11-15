@@ -221,3 +221,11 @@ p {
     text-decoration-color: $color-navyDark;
   }
 }
+
+a {
+  text-decoration: none;
+  -webkit-text-stroke: 1px $color-white;
+  color: transparent;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+}

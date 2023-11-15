@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function Navbar() {
   return (
@@ -10,10 +11,12 @@ export default function Navbar() {
         <input type="radio" name="home" />
         <input type="radio" name="menu" />
         <input type="radio" name="admin" />
+        <input type="radio" name='login'/>
         <div className="buttons">
-          <label htmlFor="home">Home</label>
-          <label htmlFor="menu">Menu</label>
-          <label htmlFor="admin">Admin</label>
+          <label htmlFor="home"><Link to='/'>Home</Link></label>
+          <label htmlFor="menu"><Link to='/menu'>Menu</Link></label>
+          <label htmlFor="admin"><Link to='/admin'>Admin</Link></label>
+          <label htmlFor="login"><Link to='/login'>Login</Link></label>
           <div className="underline"></div>
         </div>
       </div>

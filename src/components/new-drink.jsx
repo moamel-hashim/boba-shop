@@ -7,13 +7,15 @@ export default class NewDrink extends React.Component {
     super();
     this.state = {
       price: '',
-      image: 'placeholder',
+      image: '',
       drinkTitle: '',
       description: '',
       drinkType: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.onFileChange = this.onFileChange.bind(this);
+    this.fileInputRef = React.createRef();
   }
 
   handleChange(event) {
@@ -22,22 +24,36 @@ export default class NewDrink extends React.Component {
     this.setState({[name] : value});
   }
 
+  onFileChange(event) {
+    const reader = new FileReader();
+    const file = event.target.files[0];
+    reader.onload = event => this.setState({image:event.target.result});
+    reader.readAsDataURL(file);
+    this.setState({file});
+  }
+
 
   handleSubmit(event) {
+    event.preventDefault();
+    this.addDrink();
+  }
+
+  addDrink() {
     event.preventDefault();
     const formData = new FormData;
     formData.append('price', this.state.price);
     formData.append('drinkTitle', this.state.drinkTitle);
     formData.append('description', this.state.description);
     formData.append('drinkType', this.state.drinkType);
-    formData.append('image', this.state.image);
+    formData.append('image', this.fileInputRef.current.files[0]);
     axios.post('http://localhost:8888/boba-shop/index.php', formData)
-    .then(response => {
-      console.log(response.data);
-    })
-    .catch(error => {
-      console.error('Error submitting the form:', error);
-    })
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error('Error submitting the form:', error);
+        console.log('server response:', error.response);
+      })
     console.log(this.state);
   }
 
@@ -81,7 +97,7 @@ export default class NewDrink extends React.Component {
                   <label htmlFor="image">image</label>
                 </div>
                 <div>
-                  <input type="file" name="image" id="image"/>
+                  <input type="file" name="image" id="image" onChange={this.onFileChange} ref={this.fileInputRef}/>
                 </div>
                 <div>
                   <button>save</button>

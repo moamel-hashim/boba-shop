@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-axios.defaults.baseURL = 'http://localhost:8888';
+axios.defaults.baseURL = 'http://localhost:8889';
 
 export default class MenuPage extends React.Component {
   constructor() {
@@ -55,7 +55,7 @@ export default class MenuPage extends React.Component {
           <div className="drinks-container">
             {drinks.map((drink) => (
               <div key={drink.drink_id} className="drinks">
-              <img src={`http://localhost:8888/boba-shop/${drink.drink_image_path}`} alt={ drink.drink_title } /> <br />
+              <img src={`http://localhost:8889/boba-shop/${drink.drink_image_path}`} alt={ drink.drink_title } /> <br />
               <h5>{drink.drink_title}</h5> <br />
               <p>{drink.drink_description}</p> <br />
               <p>${drink.price}</p>

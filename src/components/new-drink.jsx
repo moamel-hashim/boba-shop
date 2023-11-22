@@ -3,7 +3,7 @@ import Background from "./background";
 import axios from "axios";
 import FormData from "form-data";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-axios.defaults.baseURL = 'http://localhost:8888';
+axios.defaults.baseURL = 'http://localhost:8889';
 export default function NewDrink() {
   const [state, setState] = useState({
     price: "",
@@ -42,7 +42,7 @@ export default function NewDrink() {
     formData.append("image", state.file);
 
     axios
-      .post("http://localhost:8888/boba-shop/index.php", formData)
+      .post("http://localhost:8889/boba-shop/index.php", formData)
       .then((response) => {
         console.log(response.data);
         history.push('/menu');

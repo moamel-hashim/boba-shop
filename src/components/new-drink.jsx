@@ -2,8 +2,8 @@ import React, { useState, useRef } from "react";
 import Background from "./background";
 import axios from "axios";
 import FormData from "form-data";
-import { useNavigate } from "react-router-dom";
-
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+axios.defaults.baseURL = 'http://localhost:8888';
 export default function NewDrink() {
   const [state, setState] = useState({
     price: "",
@@ -12,7 +12,7 @@ export default function NewDrink() {
     description: "",
     drinkType: "",
   });
-  const navigate = useNavigate();
+  const history = useHistory();
   const fileInputRef = useRef();
 
   const handleChange = (event) => {
@@ -24,9 +24,8 @@ export default function NewDrink() {
   const onFileChange = (event) => {
     const reader = new FileReader();
     const file = event.target.files[0];
-    reader.onload = (event) => setState({ ...state, image: event.target.result });
+    reader.onload = (event) => setState({ ...state, image: event.target.result, file: file });
     reader.readAsDataURL(file);
-    setState({ ...state, file });
   };
 
   const handleSubmit = (event) => {
@@ -46,7 +45,7 @@ export default function NewDrink() {
       .post("http://localhost:8888/boba-shop/index.php", formData)
       .then((response) => {
         console.log(response.data);
-        navigate('/menu'); // Use navigate hook for navigation
+        history.push('/menu');
       })
       .catch((error) => {
         console.error('Error submitting the form:', error);

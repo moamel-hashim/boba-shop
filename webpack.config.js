@@ -486,6 +486,7 @@ module.exports = (env, argv) => ({
               if ((req.headers.accept || '').includes('html')) return '/'
 
               // Let the API server respond by implicitly returning here.
+              return null
             },
           },
         }

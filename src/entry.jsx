@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import NotFound from 'components/NotFound';
 import Menu from './pages/Menu';
 import Admin from './pages/Admin';
+import Toppings from './components/Toppings';
 // import Admin from './pages/Admin';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -22,6 +23,7 @@ ReactDOM.render(
       <Route exact path="/" component={Home} />
       <Route path="/menu"component={Menu}/>
       <Route path="/admin" component={Admin}/>
+      <Route path="/toppings" component={Toppings} />
       <Route component={NotFound} />
     </Switch>
   </Router>,

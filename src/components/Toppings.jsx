@@ -55,7 +55,6 @@ export default function Toppings () {
 
       return (
       <>
-        <Background />
         <Navbar/>
         <section>
           <div className="form-container">
@@ -66,14 +65,14 @@ export default function Toppings () {
                   <Link to="/toppings">Toppings</Link>
                 </div>
                 <div className="form-title">
-                  <h2>welcome admin please add a drink</h2>
+                  <h2>welcome admin please add a topping</h2>
                 </div>
                 <form
                   onSubmit={handleSubmit}
                   method="post"
                   encType="multipart/form-data">
                   <div>
-                    <label htmlFor="toppingTitle">Drink Title</label>
+                    <label htmlFor="toppingTitle">Topping Title</label>
                   </div>
                   <div>
                     <input
@@ -112,7 +111,7 @@ export default function Toppings () {
                       ref={fileInputRef}
                     />
                   </div>
-                  <div>
+                  <div className="button-container">
                     <button>save</button>
                   </div>
                 </form>

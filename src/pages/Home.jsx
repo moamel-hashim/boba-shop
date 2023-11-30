@@ -6,7 +6,6 @@ import HandleHome from '../components/HomeComponent';
 const Home = () => {
   return (
     <div className="container">
-      <Navbar/>
       <HandleHome/>
     </div>
   )

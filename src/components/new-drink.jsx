@@ -58,7 +58,6 @@ export default function NewDrink() {
 
     return (
       <>
-        <Background />
         <Navbar/>
         <section>
           <div className="form-container">
@@ -140,7 +139,7 @@ export default function NewDrink() {
                       ref={fileInputRef}
                     />
                   </div>
-                  <div>
+                  <div className="button-container">
                     <button>save</button>
                   </div>
                 </form>

@@ -19,13 +19,14 @@
 */
 @import 'global';
 
-$color-purple: rgba(217, 181, 209, 0.602);
+$color-purple: rgba(255, 255, 255, 0.25);
 $color-navyDark: rgb(35, 35, 35);
 $color-white: #fff;
-$color-light-purple:rgb(209,171,208);
+$color-light-purple: rgb(209, 171, 208);
+$color-peach: rgb(218, 185, 155);
 
 $font-open-sans: 'Open Sans', sans-serif;
-$font-roboto:'Roboto', sans-serif;
+$font-roboto: 'Roboto', sans-serif;
 
 nav {
   background-color: $color-purple;
@@ -49,7 +50,8 @@ nav {
   font-size: 2em;
   font-family: 'Agbalumo', sans-serif;
   font-weight: 100;
-  color: whitesmoke;
+  color: $color-peach;
+  user-select: none;
 }
 
 .title {
@@ -71,17 +73,21 @@ nav {
         list-style: none;
         font-size: 1.75em;
         transition: text-decoration 0.3s;
+        a {
+          background-color: transparent;
+          color: $color-peach;
+        }
       }
       li::after {
-        content: "";
+        content: '';
         display: block;
         height: 3px;
-        background-color: #fff;
+        background-color: $color-peach;
         width: 0;
         transition: width 0.3s ease-out, transform 0.3s ease-out;
         position: relative;
         top: 1.9rem;
-        left: 2.4rem;
+        left: 2.5rem;
         transform: translateX(-50%);
       }
       li:hover::after {
@@ -117,11 +123,6 @@ nav {
   }
 }
 
-.series {
-  text-align: center;
-  margin: 2rem 0 0 0;
-}
-
 h4 {
   text-transform: uppercase;
   color: $color-navyDark;
@@ -137,38 +138,39 @@ h4 {
 .image-container {
   width: 30%;
 }
-
-.drinks-container {
-  max-width: 1000px;
+section.container {
+  max-width: 1360px;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 3rem;
-  gap: 1rem;
-  .drinks-card {
-    width: 25%;
-    border: 1px solid lightgray;
-    .drinks {
-      padding: 2rem;
-      img{
-        border-radius: 10px;
+  .drinks-container {
+    margin-top: 3rem;
+    .lower-container {
+      display: flex;
+      gap: 1rem;
+    }
+    .drinks-card {
+      width: 15%;
+      border: 1px solid lightgray;
+      .drinks {
+        padding: 2rem;
+        img {
+          border-radius: 10px;
+        }
       }
     }
-  }
-  h5 {
-    font-size: 1.3rem;
-    color: $color-navyDark;
-    font-family: $font-roboto;
-    font-weight: 400;
-    text-decoration: underline;
-    text-underline-position: under;
-    text-underline-offset: 2rem;
-    text-decoration-color: $color-navyDark;
-    text-align: center;
-  }
-  p {
-    text-align: center;
+    h5 {
+      font-size: 1.3rem;
+      color: $color-navyDark;
+      font-family: $font-roboto;
+      font-weight: 400;
+      text-decoration: underline;
+      text-underline-position: under;
+      text-underline-offset: 2rem;
+      text-decoration-color: $color-navyDark;
+      text-align: center;
+    }
+    p {
+      text-align: center;
+    }
   }
 }
 
@@ -177,14 +179,8 @@ p {
 }
 
 .drinks-title {
-  text-align: center;
   margin: 2rem 0 0 0;
-  h4 {
-    text-decoration: underline;
-    text-underline-position: under;
-    text-underline-offset: 2rem;
-    text-decoration-color: $color-navyDark;
-  }
+  border-bottom: solid 1px black;
 }
 
 a {
@@ -201,11 +197,12 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 80vh;
+    height: 100%;
   }
   .form-holder {
     width: 100%;
-    background-color: $color-light-purple;
+    background-color: $color-white;
+    border: solid 1px lightgray;
     padding: 1rem;
     border-radius: 5px;
     margin-top: 2rem;
@@ -214,15 +211,16 @@ a {
     margin: 1rem 0 0 0;
   }
   input {
-    padding: 0.5rem;
+    padding: 1rem;
     width: 50%;
     border-radius: 5px;
-    border: none;
+    border: solid 1px lightgray;
   }
   label {
-    color: $color-white;
+    color: black;
     font-family: $font-open-sans;
     font-size: 1.2rem;
+    margin-left: 5px;
   }
   input:focus {
     border: none;
@@ -232,9 +230,27 @@ a {
     font-family: 'Open Sans', sans-serif;
   }
   .form-title {
-    color: $color-white;
+    color: black;
     font-family: $font-roboto;
     font-weight: 400;
+  }
+  textarea {
+    resize: none;
+    width: 50%;
+  }
+  div.button-container {
+    text-align: end;
+    button {
+      padding: 0.5rem 3rem 0.5rem 3rem;
+      background-color: $color-peach;
+      border: none;
+      font-family: $font-open-sans;
+      color: whitesmoke;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 5px;
+    }
   }
 }
 
@@ -242,44 +258,43 @@ a {
   text-align: end;
 }
 
-.background {
-    background: url("../assets/images/output_974847482_0.jpg") no-repeat center fixed;
-    background-size: cover;
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-}
-
 .hero-container {
-  max-width: 900px;
-  margin: 0 auto;
-  height: 50svh;
-  margin-top: 3rem;
-  background-color: $color-light-purple;
-  padding: 2rem;
-  border-radius: 10px;
-  div {
-    color: whitesmoke;
-    h2 {
-      font-family: $font-roboto;
-      font-size: 2rem;
-    }
-    p {
-      font-size: 1.3rem;
-    }
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.25),
+      rgba(255, 255, 255, 0.25)
+    ),
+    url('../assets/images/60393b2e1c99142e015ca0d0_home-section-banner2@2x.jpg');
+  background-position: 0 0, 50%;
+  background-repeat: repeat, no-repeat;
+  background-size: auto, cover;
+  height: 100vh;
+  .hero-text-container {
+    max-width: 1360px;
+    margin: 0 auto;
+    height: 80svh;
+    display: flex;
+    align-items: center;
   }
-  div a {
-    color: whitesmoke;
-    background-color: rgb(218, 185, 155);
-    padding: 0.5rem 2rem 0.5rem 2rem;
-    border-radius: 5px;
-    font-size: 1.5rem;
-  }
-  .menu-button {
-    margin-top: 3rem;
+  .hero-text {
+    flex: 1;
+    div {
+      color: black;
+      h2 {
+        font-family: $font-roboto;
+        font-size: 3rem;
+        text-transform: uppercase;
+        user-select: none;
+      }
+    }
+    div a {
+      color: whitesmoke;
+      background-color: rgb(218, 185, 155);
+      padding: 0.9rem 3rem 0.9rem 3rem;
+      font-size: 1.5rem;
+    }
+    .menu-button {
+      margin-top: 3rem;
+    }
   }
 }
 
@@ -302,28 +317,19 @@ a {
 }
 
 .topping-title {
-  text-align: center;
-  margin: 2rem 0 0 0;
-  h4 {
-    text-decoration: underline;
-    text-underline-position: under;
-    text-underline-offset: 2rem;
-    text-decoration-color: $color-navyDark;
-  }
+  margin: 5rem 0 0 0;
+  border-bottom: solid 1px black;
 }
 
-
-
 .topping-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   margin-top: 3rem;
-  gap: 1rem;
+  .lower-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
   .topping-card {
-    width: 25%;
+    width: 15%;
     border: 1px solid lightgray;
     .toppings {
       padding: 0.5rem;

@@ -24,12 +24,15 @@ $color-navyDark: rgb(35, 35, 35);
 $color-white: #fff;
 $color-light-purple: rgb(209, 171, 208);
 $color-peach: rgb(218, 185, 155);
+$transparent-matcha: rgba(116,161,46, 0.4);
+$veryDark-Olive: rgb(51,51,51);
+$matcha: rgb(116, 161, 46);
 
 $font-open-sans: 'Open Sans', sans-serif;
 $font-roboto: 'Roboto', sans-serif;
 
 nav {
-  background-color: $color-purple;
+  background-color: $transparent-matcha;
   backdrop-filter: blur(5px);
 }
 
@@ -50,7 +53,7 @@ nav {
   font-size: 2em;
   font-family: 'Agbalumo', sans-serif;
   font-weight: 100;
-  color: $color-peach;
+  color: $veryDark-Olive;
   user-select: none;
 }
 
@@ -75,14 +78,14 @@ nav {
         transition: text-decoration 0.3s;
         a {
           background-color: transparent;
-          color: $color-peach;
+          color: $veryDark-Olive;
         }
       }
       li::after {
         content: '';
         display: block;
         height: 3px;
-        background-color: $color-peach;
+        background-color: $veryDark-Olive;
         width: 0;
         transition: width 0.3s ease-out, transform 0.3s ease-out;
         position: relative;
@@ -110,7 +113,7 @@ nav {
     margin: 0;
     font-weight: 400;
     font-family: $font-roboto;
-    color: $color-navyDark;
+    color: $veryDark-Olive;
     text-transform: uppercase;
   }
 
@@ -125,8 +128,8 @@ nav {
 
 h4 {
   text-transform: uppercase;
-  color: $color-navyDark;
-  font-size: 1.7em;
+  color: $veryDark-Olive;
+  font-size: 2.7em;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
 }
@@ -148,8 +151,10 @@ section.container {
       gap: 1rem;
     }
     .drinks-card {
+      box-shadow: 0 0 5px black;
       width: 15%;
       border: 1px solid lightgray;
+      border-radius: 5px;
       .drinks {
         padding: 2rem;
         img {
@@ -159,7 +164,7 @@ section.container {
     }
     h5 {
       font-size: 1.3rem;
-      color: $color-navyDark;
+      color: $veryDark-Olive;
       font-family: $font-roboto;
       font-weight: 400;
       text-decoration: underline;
@@ -242,7 +247,7 @@ a {
     text-align: end;
     button {
       padding: 0.5rem 3rem 0.5rem 3rem;
-      background-color: $color-peach;
+      background-color: $matcha;
       border: none;
       font-family: $font-open-sans;
       color: whitesmoke;
@@ -250,6 +255,11 @@ a {
       text-transform: uppercase;
       letter-spacing: 1px;
       border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.5s;
+    }
+    button:hover {
+      background-color: $veryDark-Olive;
     }
   }
 }
@@ -330,6 +340,8 @@ a {
   }
   .topping-card {
     width: 15%;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
     border: 1px solid lightgray;
     .toppings {
       padding: 0.5rem;

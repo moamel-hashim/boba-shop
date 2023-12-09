@@ -12,6 +12,8 @@ import Home from './pages/Home';
 import NotFound from 'components/NotFound';
 import Menu from './pages/Menu';
 import Admin from './pages/Admin';
+import Toppings from './components/Toppings';
+import NewDrink from './components/new-drink';
 // import Admin from './pages/Admin';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 

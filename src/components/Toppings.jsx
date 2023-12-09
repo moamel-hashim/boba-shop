@@ -1,31 +1,30 @@
-import React, { useState, useRef } from "react";
 import Navbar from "./Navbar";
 import Background from "./background";
+import React, {useState, useRef} from "react";
 import axios from "axios";
 import FormData from "form-data";
-import { useHistory, Link } from "react-router-dom/cjs/react-router-dom.min";
+import {useHistory, Link} from "react-router-dom/cjs/react-router-dom.min";
 axios.defaults.baseURL = 'http://localhost:8889';
-export default function NewDrink() {
+
+export default function Toppings () {
   const [state, setState] = useState({
-    price: "",
-    image: "",
-    drinkTitle: "",
-    description: "",
-    drinkType: "",
+      price: "",
+      image: "",
+      toppingTitle: "",
   });
-  const history = useHistory();
-  const fileInputRef = useRef();
+      const history = useHistory();
+      const fileInputRef = useRef();
 
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setState({ ...state, [name]: value });
+    setState({...state, [name]: value });
   };
 
   const onFileChange = (event) => {
     const reader = new FileReader();
     const file = event.target.files[0];
-    reader.onload = (event) => setState({ ...state, image: event.target.result, file: file });
+    reader.onload = (event) => setState({...state, image: event.target.result, file: file });
     reader.readAsDataURL(file);
   };
 
@@ -37,26 +36,24 @@ export default function NewDrink() {
   const addDrink = () => {
     const formData = new FormData();
     formData.append("price", state.price);
-    formData.append("drinkTitle", state.drinkTitle);
-    formData.append("description", state.description);
-    formData.append("drinkType", state.drinkType);
+    formData.append("toppingTitle", state.toppingTitle);
     formData.append("image", state.file);
 
-    axios
-      .post("http://localhost:8889/boba-shop/index.php", formData)
+      axios
+      .post("/boba-shop/topping.php", formData)
       .then((response) => {
         console.log(response.data);
-        history.push('/menu');
+      history.push('/menu');
       })
       .catch((error) => {
         console.error('Error submitting the form:', error);
         console.log('server response:', error.response);
       });
 
-    console.log(state);
+      console.log('value of state:',state);
   };
 
-    return (
+      return (
       <>
         <Navbar/>
         <section>
@@ -68,22 +65,23 @@ export default function NewDrink() {
                   <Link to="/toppings">Toppings</Link>
                 </div>
                 <div className="form-title">
-                  <h2>welcome admin please add a drink</h2>
+                  <h2>welcome admin please add a topping</h2>
                 </div>
                 <form
                   onSubmit={handleSubmit}
+                  method="post"
                   encType="multipart/form-data">
                   <div>
-                    <label htmlFor="drink-type">Drink Type</label>
+                    <label htmlFor="toppingTitle">Topping Title</label>
                   </div>
                   <div>
                     <input
                       type="text"
-                      name="drinkType"
-                      placeholder="name of a drink"
-                      id="drink-type"
+                      name="toppingTitle"
+                      placeholder="Topping title"
+                      id="toppingTitle"
                       onChange={handleChange}
-                      value={state.drinkType}
+                      value={state.toppingTitle}
                       required
                     />
                   </div>
@@ -100,32 +98,6 @@ export default function NewDrink() {
                       value={state.price}
                       required
                     />
-                  </div>
-                  <div>
-                    <label htmlFor="drinkTitle">Drink Title</label>
-                  </div>
-                  <div>
-                    <input
-                      type="text"
-                      name="drinkTitle"
-                      placeholder="drink title"
-                      id="drink-title"
-                      onChange={handleChange}
-                      value={state.drinkTitle}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="description">Description</label>
-                  </div>
-                  <div>
-                    <textarea
-                      name="description"
-                      id="description"
-                      cols="30"
-                      rows="10"
-                      onChange={handleChange}
-                      value={state.drinkDescription}></textarea>
                   </div>
                   <div>
                     <label htmlFor="image">image</label>
@@ -148,5 +120,5 @@ export default function NewDrink() {
           </div>
         </section>
       </>
-    )
+      )
 }

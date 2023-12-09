@@ -8,16 +8,13 @@ export default function Navbar() {
         <div className='title'>
           <h3>boba shop</h3>
         </div>
-        <input type="radio" name="home" />
-        <input type="radio" name="menu" />
-        <input type="radio" name="admin" />
-        <input type="radio" name='login'/>
-        <div className="buttons">
-          <label htmlFor="home"><Link to='/'>Home</Link></label>
-          <label htmlFor="menu"><Link to='/menu'>Menu</Link></label>
-          <label htmlFor="admin"><Link to='/admin'>Admin</Link></label>
-          <label htmlFor="login"><Link to='/login'>Login</Link></label>
-          <div className="underline"></div>
+        <div className='nav-links'>
+          <ul>
+            <li><Link to=''>Home</Link></li>
+            <li><Link to='/menu'>Menu</Link></li>
+            <li><Link to='/admin'>Admin</Link></li>
+            <li><Link to='/login'>Login</Link></li>
+          </ul>
         </div>
       </div>
     </nav>

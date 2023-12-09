@@ -1,7 +1,14 @@
 import React from "react";
+import Navbar from "../components/Navbar";
+import Background from "../components/background";
+import LoginComponent from "../components/Login-component";
 
 export default function Login () {
   return (
-    <h1>working page</h1>
+    <>
+    <Navbar />
+    <LoginComponent/>
+    <Background/>
+    </>
   )
 }

@@ -6,7 +6,7 @@ import Home from "./Home";
 import Menu from "./Menu";
 import NotFound from "./NotFound";
 import {BrowserRouter as Router,Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
-
+import Login from "./Login";
 const Admin = () => {
   return (
     <>
@@ -15,6 +15,7 @@ const Admin = () => {
       <Route path="/admin" component={NewDrink}/>
       <Route path="/toppings" component={Toppings}/>
       <Route path="/menu" component={Menu}/>
+      <Route path="/login" component={Login}/>
       <Route exact path="/" component={Home}/>
       <Route component={NotFound}/>
     </Switch>

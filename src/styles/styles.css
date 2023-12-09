@@ -1,0 +1,363 @@
+/*
+  This file will be the top-most entry point for all styles in the app.
+  Any dependant styles should be explicitly imported here.
+
+  Import files from the `node_modules` folder by prepending them with "~".
+  To import CSS files from `node_modules`, make sure to include the file extension.
+*/
+@import 'sassyons/dist/sassyons.css';
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Open+Sans:ital,wght@0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Roboto:wght@300;400;500;700;900&display=swap");
+/*
+  Application Styles
+  ------------------
+
+  All our application-specific styles will go below.
+  @import each of them in reverse-priority order (bottom = highest priority).
+*/
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Open+Sans:ital,wght@0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Roboto:wght@300;400;500;700;900&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+}
+
+/*
+  Add your custom global styles here.
+  The styles provided below are a minimal suggested starting point.
+*/
+nav {
+  background-color: rgba(255, 255, 255, 0.25);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+
+.background {
+  background: rgb(35, 35, 35);
+}
+
+.full-width {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.title h3 {
+  font-size: 2em;
+  font-family: "Agbalumo", sans-serif;
+  font-weight: 100;
+  color: rgb(218, 185, 155);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.title {
+  width: 50%;
+}
+
+.tabs {
+  display: flex;
+  align-items: baseline;
+  padding: 0 0 0 1rem;
+  justify-content: space-between;
+}
+.tabs .nav-links {
+  width: 50%;
+}
+.tabs .nav-links ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+.tabs .nav-links ul li {
+  text-decoration: none;
+  list-style: none;
+  font-size: 1.75em;
+  transition: -webkit-text-decoration 0.3s;
+  transition: text-decoration 0.3s;
+  transition: text-decoration 0.3s, -webkit-text-decoration 0.3s;
+}
+.tabs .nav-links ul li a {
+  background-color: transparent;
+  color: rgb(218, 185, 155);
+}
+.tabs .nav-links ul li::after {
+  content: "";
+  display: block;
+  height: 3px;
+  background-color: rgb(218, 185, 155);
+  width: 0;
+  transition: width 0.3s ease-out, transform 0.3s ease-out;
+  position: relative;
+  top: 1.9rem;
+  left: 2.5rem;
+  transform: translateX(-50%);
+}
+.tabs .nav-links ul li:hover::after {
+  width: 100%;
+}
+
+.menuTitle {
+  display: flex;
+  flex-direction: column;
+  background: url("../assets/images/background.webp") no-repeat fixed;
+  background-size: contain;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+}
+.menuTitle h3 {
+  margin: 0;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+  color: rgb(35, 35, 35);
+  text-transform: uppercase;
+}
+.menuTitle h3:nth-child(1) {
+  font-size: 3rem;
+}
+.menuTitle h3:nth-child(2) {
+  font-size: 5rem;
+}
+
+h4 {
+  text-transform: uppercase;
+  color: rgb(35, 35, 35);
+  font-size: 1.7em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.text-align-center {
+  text-align: -webkit-center;
+}
+
+.image-container {
+  width: 30%;
+}
+
+section.container {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+section.container .drinks-container {
+  margin-top: 3rem;
+}
+section.container .drinks-container .lower-container {
+  display: flex;
+  gap: 1rem;
+}
+section.container .drinks-container .drinks-card {
+  width: 15%;
+  border: 1px solid lightgray;
+}
+section.container .drinks-container .drinks-card .drinks {
+  padding: 2rem;
+}
+section.container .drinks-container .drinks-card .drinks img {
+  border-radius: 10px;
+}
+section.container .drinks-container h5 {
+  font-size: 1.3rem;
+  color: rgb(35, 35, 35);
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-position: under;
+  text-underline-offset: 2rem;
+  text-decoration-color: rgb(35, 35, 35);
+  text-align: center;
+}
+section.container .drinks-container p {
+  text-align: center;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+}
+
+.drinks-title {
+  margin: 2rem 0 0 0;
+  border-bottom: solid 1px black;
+}
+
+a {
+  text-decoration: none;
+  color: whitesmoke;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+}
+
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.form-container .form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.form-container .form-holder {
+  width: 100%;
+  background-color: #fff;
+  border: solid 1px lightgray;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 2rem;
+}
+.form-container .form-holder div {
+  margin: 1rem 0 0 0;
+}
+.form-container input {
+  padding: 1rem;
+  width: 50%;
+  border-radius: 5px;
+  border: solid 1px lightgray;
+}
+.form-container label {
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2rem;
+  margin-left: 5px;
+}
+.form-container input:focus {
+  border: none;
+}
+.form-container input::-moz-placeholder {
+  font-family: "Open Sans", sans-serif;
+}
+.form-container input::placeholder {
+  font-family: "Open Sans", sans-serif;
+}
+.form-container .form-title {
+  color: black;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+.form-container textarea {
+  resize: none;
+  width: 50%;
+}
+.form-container div.button-container {
+  text-align: end;
+}
+.form-container div.button-container button {
+  padding: 0.5rem 3rem 0.5rem 3rem;
+  background-color: rgb(218, 185, 155);
+  border: none;
+  font-family: "Open Sans", sans-serif;
+  color: whitesmoke;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 5px;
+}
+
+.text-align-end {
+  text-align: end;
+}
+
+.hero-container {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url("../assets/images/60393b2e1c99142e015ca0d0_home-section-banner2@2x.jpg");
+  background-position: 0 0, 50%;
+  background-repeat: repeat, no-repeat;
+  background-size: auto, cover;
+  height: 100vh;
+}
+.hero-container .hero-text-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  height: 80svh;
+  display: flex;
+  align-items: center;
+}
+.hero-container .hero-text {
+  flex: 1;
+}
+.hero-container .hero-text div {
+  color: black;
+}
+.hero-container .hero-text div h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 3rem;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.hero-container .hero-text div a {
+  color: whitesmoke;
+  background-color: rgb(218, 185, 155);
+  padding: 0.9rem 3rem 0.9rem 3rem;
+  font-size: 1.5rem;
+}
+.hero-container .hero-text .menu-button {
+  margin-top: 3rem;
+}
+
+.form-links {
+  display: flex;
+  justify-content: end;
+}
+.form-links a {
+  color: whitesmoke;
+  background-color: rgb(218, 185, 155);
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  font-size: 1.3rem;
+}
+.form-links a:nth-child(1) {
+  border-radius: 5px 0 0 5px;
+  border-right: solid 1px white;
+}
+.form-links a:nth-child(2) {
+  border-radius: 0 5px 5px 0;
+}
+
+.topping-title {
+  margin: 5rem 0 0 0;
+  border-bottom: solid 1px black;
+}
+
+.topping-container {
+  margin-top: 3rem;
+}
+.topping-container .lower-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.topping-container .topping-card {
+  width: 15%;
+  border: 1px solid lightgray;
+}
+.topping-container .topping-card .toppings {
+  padding: 0.5rem;
+}
+.topping-container .topping-card .toppings img {
+  border-radius: 10px;
+}
+.topping-container h5 {
+  font-size: 1.3rem;
+  color: rgb(35, 35, 35);
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-position: under;
+  text-underline-offset: 2rem;
+  text-decoration-color: rgb(35, 35, 35);
+  text-align: center;
+}
+.topping-container p {
+  text-align: center;
+}/*# sourceMappingURL=styles.css.map */

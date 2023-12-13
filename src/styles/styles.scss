@@ -156,7 +156,7 @@ section.container {
       border: 1px solid lightgray;
       border-radius: 5px;
       .drinks {
-        padding: 2rem;
+        padding: 1rem;
         img {
           border-radius: 10px;
         }
@@ -433,3 +433,17 @@ a {
     }
   }
 }
+
+  .icon-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    .gear {
+      color: rgb(100, 100, 100);
+      cursor: pointer;
+    }
+    .trash {
+      color: rgb(123, 17, 17);
+      cursor: pointer;
+    }
+  }

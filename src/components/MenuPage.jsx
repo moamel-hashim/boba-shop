@@ -4,6 +4,7 @@ axios.defaults.baseURL = 'http://localhost:8889';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faGear } from "@fortawesome/free-solid-svg-icons";
+import {useHistory } from "react-router-dom/cjs/react-router-dom.min";
 export default class MenuPage extends React.Component {
   constructor() {
     super();
@@ -19,14 +20,14 @@ export default class MenuPage extends React.Component {
     this.handleDeleteTopping = this.handleDeleteTopping.bind(this);
     this.handleEditTopping = this.handleEditTopping.bind(this);
   }
-
   componentDidMount() {
     this.getDrinks();
     this.getToppings();
   }
 
   handleEditDrink(drinkId) {
-    console.log(`Edit drink with ID: ${drinkId}`);
+    const history = useHistory();
+    history.push('/edit-drink');
   };
 
   handleDeleteDrink(drinkId) {
